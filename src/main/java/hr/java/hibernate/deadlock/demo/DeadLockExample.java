@@ -30,7 +30,7 @@ public class DeadLockExample {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
             for (Long id : ids) {
-                Thread.sleep(3000);
+                Thread.sleep(300);
                 Publisher publisher = session.byId(Publisher.class).load(id);
                 publisher.setName(prefix + " " + publisher.getName());
             }
